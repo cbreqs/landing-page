@@ -34,6 +34,18 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
+        #email-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
         /* Dark Mode Styling */
         body.dark-mode {
             background-color: #121212;
@@ -49,6 +61,7 @@
 <body>
     <h1>a workaround is not a solution</h1>
     <button id="toggle-theme">Toggle Dark Mode</button>
+    <button id="email-button">Email Me</button>
 
     <script>
         // Check for saved theme preference
@@ -72,6 +85,11 @@
 
             // Save user preference
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        });
+
+        // Email button event listener
+        document.getElementById('email-button').addEventListener('click', () => {
+            window.location.href = 'mailto:cb@reqs.tech';
         });
     </script>
 </body>
