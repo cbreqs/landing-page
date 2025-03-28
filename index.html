@@ -23,9 +23,6 @@
         }
 
         button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
             padding: 10px 20px;
             font-size: 1rem;
             border: none;
@@ -34,16 +31,18 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
+        #toggle-theme {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
         #email-button {
             position: absolute;
             bottom: 20px;
             right: 20px;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
+            background-color: #888;
+            color: #f0f0f0;
         }
 
         /* Dark Mode Styling */
@@ -55,6 +54,11 @@
         button.dark-mode {
             background-color: #444;
             color: #f0f0f0;
+        }
+
+        #email-button.dark-mode {
+            background-color: #555;
+            color: #e0e0e0;
         }
     </style>
 </head>
@@ -71,6 +75,7 @@
             document.body.classList.add('dark-mode');
             document.getElementById('toggle-theme').classList.add('dark-mode');
             document.getElementById('toggle-theme').textContent = 'Switch to Light Mode';
+            document.getElementById('email-button').classList.add('dark-mode');
         }
 
         // Toggle button event listener
@@ -80,7 +85,10 @@
 
             // Update button text and style
             const button = document.getElementById('toggle-theme');
+            const emailButton = document.getElementById('email-button');
+
             button.classList.toggle('dark-mode');
+            emailButton.classList.toggle('dark-mode');
             button.textContent = isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode';
 
             // Save user preference
